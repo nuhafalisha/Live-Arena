@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href __>
+</head>
+
+<body>
+    <div class="register-form">
+        <form action="{{ url_for('auth.register')}}" method="post">
+            <h2>Register Live Arena Now!</h2>
+            <div class="input-conntainer">
+                <input type="text" name="username" required>
+                <label>Create a username</label>
+            </div>
+            <div class="input-container">
+                <input type="password" name="password" required>
+                <label>Creater a password</label>
+            </div>
+            <div class="terms">
+                <p>By signing up, you agreed to our General Terms.</p>
+            </div>
+            <button type="submit">Register</button> 
+        </form>
+    </div>
+</body>
+
+</html>
