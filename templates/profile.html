@@ -1,0 +1,51 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Profile</title> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}"> 
+</head> 
+<body> 
+    <header class="header"> 
+        <div class="logo">Live Arena</div> 
+        <nav class="nav"> 
+            <a href="#">Dashboard</a> 
+            <a href="#">Buy Tickets</a> 
+            <a href="#">Events</a> 
+            <a href="{{ url_for('logout') }}">Logout</a> 
+        </nav> 
+        <div class="profile-menu"> 
+            <span class="profile-name">{{ user.username }}</span> 
+        </div> 
+    </header> 
+
+    <section class="profile-section"> 
+        <div class="profile-container"> 
+            <div class="profile-header"> 
+                <h2>{{ user.username }}</h2> 
+                <p>Malaysia</p> 
+            </div> 
+            <div class="profile-tabs"> 
+                <button class="tab">Payment History</button> 
+                <a href="{{ url_for('reset_password') }}" class="tab">Reset Password</a> <!-- Updated Link -->
+                <button class="tab">Activity Log</button> 
+            </div> 
+            <div class="profile-info"> 
+                <div class="info-item"> 
+                    <span class="label">Name:</span> 
+                    <span class="value">{{ user.username }}</span> 
+                </div> 
+                <div class="info-item"> 
+                    <span class="label">Status:</span> 
+                    <span class="status active">Active</span> 
+                </div> 
+            </div> 
+        </div> 
+    </section> 
+
+    <footer> 
+        <p>&copy; 2024 Live Arena. All Rights Reserved.</p> 
+    </footer> 
+</body> 
+</html>
