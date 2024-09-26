@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Live Arena</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="C:\Users\najih\Desktop\Live Arena\static\ku.css">
+    </head>
+    
+    <nav class="navbar">
+        <img src="C:\Users\najih\Downloads\LA-03-removebg-preview.png" alt="LA logo" class="navbar logo">
+        <ul class="navbar-menu">
+            <li><a class=":active" href="#"></a></li>
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">PURCHASING</a></li>
+            <li><a href="#">PROFILE</a></li>
+        </ul>
+     </nav>
+
+        <section class="KU">
+            <div class="kali">
+                <h3>Kali Uchis - Red Moon In Venus Tour</h3>
+                <p>ZEPP KUALA LUMPUR 4.2.2025 9PM</p>
+            </div>
+        </section>
+
+        <div class="container">
+
+            <div class="poster">
+            <img class="centered-image" src="C:\Users\najih\Downloads\ku-poster.jpg" alt="Kali Uchis Poster">
+        </div>
+               
+        <div class="left-plan">
+            <div class="stage">STAGE</div>
+
+            <div class="section-floor">
+                <div class="vip">VIP<br>Rockzone</div>
+                <div class="cat1">CAT 1<br>General Admission</div>
+                <div class="cat2">CAT 2<br>(UL) Premium Seating</div>
+             </div>
+
+             <div class="price-list">
+                <div class="price vip-price">VIP<br>RM890</div>
+                <div class="price cat1-price">CAT 1<br>RM690</div>
+                <div class="price cat2-price">CAT 2 <br>RM490</div>
+             </div>
+        </div>
+        </div>
+             <button class="collapsible">EVENT INFORMATION</button>
+             <div class="content">
+                 <p>This concert is part of Kali Uchis's Red Moon in Venus Tour and will take place at the Zepp in Kuala Lumpur.
+                    <br> Fans can expect a magical evening of live performances featuring hits from her latest albums.</p>
+                 <p>Doors will open at 6:00 PM. Parking spaces are available at the venue, but we encourage fans to use public transport for convenience.</p>
+                 <p>For any further inquiries, please contact the event organizers or follow @livearena on social media for live updates.</p>
+             </div>
+
+             <button class="collapsible">RULES AND REGULATIONS</button>
+             <div class="input">
+                <img class="AP" src="C:\Users\najih\Downloads\admission-policy.jpeg" style="width:300px; height:auto; margin-top:10px;">
+             </div>
+
+             <footer>
+                <div class="footer-content">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                    <p>Copyright &copy; 2024 Live Arena. All rights reserved.</p>
+                </div>
+            </footer>
+
+             <script>
+                // JavaScript to toggle the collapsible content
+                const collapsible = document.querySelectorAll(".collapsible");
+                collapsible.forEach(button => {
+                    button.addEventListener("click", function() {
+                        this.classList.toggle("active");
+                        const content = this.nextElementSibling;
+                        if (content.style.display === "block") {
+                            content.style.display = "none";
+                        } else {
+                            content.style.display = "block";
+                        }
+                    });
+                });
+            </script>
+        </body>
+        </html>
