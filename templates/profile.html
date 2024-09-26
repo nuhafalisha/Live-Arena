@@ -1,0 +1,66 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Profile</title> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}"> 
+</head> 
+<body> 
+    <header>
+        <nav class="navbar"> 
+            <div class="logo-container">
+                <img src="{{ url_for('static', filename='images/LA-03-removebg-preview.png') }}" alt="LA logo" class="navbar-logo"> 
+            </div>
+            <ul class="navbar-menu"> 
+                <li><a href="#">HOME</a></li> 
+                <li><a href="#">PURCHASING</a></li> 
+                <li><a href="{{ url_for('logout') }}">LOGOUT</a></li> 
+            </ul> 
+            <div class="profile-menu"> 
+                <span class="profile-name">{{ user.username }}</span> 
+            </div>
+        </nav>
+    </header> 
+ 
+    <main class="profile-section"> 
+        <div class="profile-container"> 
+            <div class="profile-header"> 
+                <h2>{{ user.username }}</h2> 
+                <p>Malaysia</p> 
+            </div>
+            <div class="profile-tabs"> 
+                <button class="tab">Payment History</button> 
+                <a href="{{ url_for('reset_password') }}" class="tab">Reset Password</a> 
+                <button class="tab">Activity Log</button> 
+                <form action="{{ url_for('delete_account') }}" method="POST" style="display:inline;"> 
+                    <button type="submit" class="tab" onclick="return confirm('Are you sure you want to delete your account? This action is irreversible.');"> 
+                        Delete Account 
+                    </button> 
+                </form> 
+            </div> 
+            <div class="profile-info"> 
+                <div class="info-item"> 
+                    <span class="label">Name:</span> 
+                    <span class="value">{{ user.username }}</span> 
+                </div>
+                <div class="info-item"> 
+                    <span class="label">Status:</span> 
+                    <span class="status active">Active</span> 
+                </div>
+            </div> 
+        </div> 
+    </main> 
+ 
+    <footer> 
+        <div class="footer-content"> 
+            <ul> 
+                <li><a href="#">Home</a></li> 
+                <li><a href="#">About</a></li> 
+                <li><a href="#">Contact</a></li> 
+            </ul> 
+            <p>Copyright &copy; 2024 Live Arena. All rights reserved.</p> 
+        </div> 
+    </footer> 
+</body> 
+</html>
