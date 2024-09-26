@@ -1,0 +1,136 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: black; 
+    color: #fff;
+    line-height: 1.6;
+}
+
+nav {
+    background: black; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 5px;
+}
+
+.logo {
+    width: 20% ;
+    height:auto;
+    display:block;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin-right: 40%;
+
+}
+
+nav ul li {
+    margin: 0 15px;
+
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: lighter;
+    transition: opacity 0.3s;
+}
+
+nav ul li a:hover {
+    opacity: 0.7;
+    color: #ff69bf;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+/* Seating Area */
+.seating-area {
+    flex: 1;
+    margin-right: 20px;
+}
+
+h2 {
+    text-align: center;
+}
+
+/* Seat Grid */
+.seat-grid {
+    display: grid;
+    grid-template-columns: repeat(10, 50px); /* 10 seats per row */
+    grid-gap: 10px; /* Space between seats */
+    justify-content: center;
+    padding: 10px;
+}
+
+
+.seat {
+    width: 40px; /* Seat size */
+    height: 40px; /* Seat size */
+    background-color: hsl(345, 72%, 40%);
+    border: 1px solid #333;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+
+.seat.unavailable {
+    background-color: #d3d3d3; /* Unavailable seat color */
+    cursor: not-allowed;
+}
+
+/* Selected seat styling */
+.seat.selected {
+    background-color: #ff6347; /* Highlight color */
+    color: white;
+    font-weight: bold;
+}
+
+/* Booking Details */
+.booking-details {
+    width: 45%;
+    height: 50%;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-top:15%;
+}
+
+.booking-details h3 {
+    color:#ff69bf;
+}
+.booking-details p {
+    color: #444;
+}
+
+.book-now-btn {
+    display: block;
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    background-color: gray;
+    color: #444;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+

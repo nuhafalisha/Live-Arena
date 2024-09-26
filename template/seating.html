@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seat Selection</title>
+    <link rel="stylesheet" href="C:\Users\najih\Desktop\Live Arena\static\seating.css">
+</head>
+<body>
+    <nav class="navbar">
+        <img src="C:\Users\najih\Downloads\LA-03-removebg-preview.png" alt="LA logo" class="navbar logo">
+        <ul class="navbar-menu">
+            <li><a class=":active" href="#"></a></li>
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">PURCHASING</a></li>
+            <li><a href="#">PROFILE</a></li>
+        </ul>
+     </nav>
+
+     <div class="container">
+        <div class="seating-area">
+            <h2>Stage</h2>
+            <div class="seat-grid" id="seat-grid">
+                <!-- Seats will be generated here by JavaScript -->
+            </div>
+        </div>
+
+        <div class="booking-details">
+            <h3>BOOKING DETAILS</h3>
+            <p><strong>Show Date: Tues, 1st October 2024</strong> </p>
+            <p><strong>Section:</strong> <span id="section">N/A</span></p>
+            <p><strong>Seat Number:</strong> <span id="seat-number">N/A</span></p>
+            <p><strong>Price MYR:</strong> <span id="price">N/A</span></p>
+            <p><strong>Seats Available: 0</strong></p>
+            <button class="book-now-btn" id="book-now">Book Now</button>
+        </div>
+    </div>
+    <script>
+        // Function to generate seats
+        const generateSeats = () => {
+            const seatGrid = document.getElementById('seat-grid');
+            const numRows = 10;  // Example: 10 rows of seats
+            const seatsPerRow = 10;  // Example: 10 seats per row
+            const price = 698;  // Static price for all seats (can be customized)
+
+            // Generate 100 seats (10 rows, 10 seats per row)
+            for (let row = 0; row < numRows; row++) {
+                for (let seat = 1; seat <= seatsPerRow; seat++) {
+                    const seatNumber = seat < 10 ? `0${seat}` : seat;
+                    const section = String.fromCharCode(65 + row);  // A, B, C, etc.
+                    const seatId = `${section}-${seatNumber}`;
+                    
+                    // Create a seat div element
+                    const seatDiv = document.createElement('div');
+                    seatDiv.className = 'seat unavailable';
+                    seatDiv.id = seatId;
+                    seatDiv.setAttribute('data-price', price);
+                    seatDiv.setAttribute('data-section', section);
+                    seatDiv.innerText = seatId;
+
+                    // Attach click event listener to each seat
+                    seatDiv.addEventListener('click', handleSeatClick);
+
+                    // Append the seat to the seat grid
+                    seatGrid.appendChild(seatDiv);
+                }
+            }
+        };
+
+        // Function to handle seat click event
+        const handleSeatClick = (event) => {
+            const selectedSeat = event.target;
+            
+            // If seat is unavailable, do nothing
+            if (selectedSeat.classList.contains('unavailable')) {
+                return;
+            }
+            
+            // Get seat details from data attributes
+            const seatNumber = selectedSeat.id;
+            const section = selectedSeat.getAttribute('data-section');
+            const price = selectedSeat.getAttribute('data-price');
+
+            // Display booking details
+            document.getElementById('seat-number').innerText = seatNumber;
+            document.getElementById('section').innerText = section;
+            document.getElementById('price').innerText = price;
+
+            // Highlight the selected seat by adding a class
+            clearPreviousSelection();  // Remove highlight from previously selected seat
+            selectedSeat.classList.add('selected');
+        };
+
+        // Function to clear previous selection
+        const clearPreviousSelection = () => {
+            const previouslySelectedSeat = document.querySelector('.seat.selected');
+            if (previouslySelectedSeat) {
+                previouslySelectedSeat.classList.remove('selected');
+            }
+        };
+
+        // Call the seat generation function when the page loads
+        window.onload = generateSeats;
+    </script>
+    
+</body>
+</html>
