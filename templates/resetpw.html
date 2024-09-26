@@ -5,21 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reset Password</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/resetpw.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
 </head>
 <body>
-    <header class="header">
-        <div class="logo">Live Arena</div>
-        <nav class="nav">
-            <a href="#">Dashboard</a>
-            <a href="#">Buy Tickets</a>
-            <a href="#">Events</a>
-            <a href="{{ url_for('logout') }}">Logout</a>
+    <header>
+        <nav class="navbar"> 
+            <div class="logo-container">
+                <img src="{{ url_for('static', filename='images/LA-03-removebg-preview.png') }}" alt="LA logo" class="navbar-logo"> 
+            </div>
+            <ul class="navbar-menu"> 
+                <li><a href="#">HOME</a></li> 
+                <li><a href="#">PURCHASING</a></li> 
+                <li><a href="{{ url_for('logout') }}">LOGOUT</a></li> 
+            </ul> 
+            <div class="profile-menu"> 
+                <span class="profile-name">{{ user.username }}</span> 
+            </div>
         </nav>
-        <div class="profile-menu">
-            <span class="profile-name">{{ user.username }}</span>
-        </div>
-    </header>
+    </header> 
 
     <section class="profile-section">
         <div class="profile-container">
