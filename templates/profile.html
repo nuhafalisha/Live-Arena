@@ -10,10 +10,9 @@
     <header class="header"> 
         <div class="logo">Live Arena</div> 
         <nav class="nav"> 
-            <a href="#">Dashboard</a> 
-            <a href="#">Buy Tickets</a> 
-            <a href="#">Events</a> 
-            <a href="{{ url_for('logout') }}">Logout</a> 
+            <a href="#">HOME</a> 
+            <a href="#">PURCHASING</a> 
+            <a href="{{ url_for('logout') }}">LOGOUT</a> 
         </nav> 
         <div class="profile-menu"> 
             <span class="profile-name">{{ user.username }}</span> 
@@ -28,8 +27,14 @@
             </div> 
             <div class="profile-tabs"> 
                 <button class="tab">Payment History</button> 
-                <a href="{{ url_for('reset_password') }}" class="tab">Reset Password</a> <!-- Updated Link -->
+                <a href="{{ url_for('reset_password') }}" class="tab">Reset Password</a> 
                 <button class="tab">Activity Log</button> 
+                
+                <form action="{{ url_for('delete_account') }}" method="POST" style="display:inline;">
+                    <button type="submit" class="tab" onclick="return confirm('Are you sure you want to delete your account? This action is irreversible.');">
+                        Delete Account
+                    </button>
+                </form>
             </div> 
             <div class="profile-info"> 
                 <div class="info-item"> 

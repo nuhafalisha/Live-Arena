@@ -47,11 +47,11 @@ def login():
         user = User.query.filter_by(username=username).first() 
 
         if not user or not check_password_hash(user.password, password): 
-            flash('Invalid credentials, please try again', 'error') 
+            flash('Oppsies! Account not found, please try again', 'error') 
             return redirect(url_for('login')) 
 
         session['user_id'] = user.id 
-        flash('Login successful!', 'success') 
+        flash('Pop the confetti! You are officially logged in!', 'success') 
         return redirect(url_for('profile')) 
 
     return render_template('login.html') 
@@ -70,7 +70,7 @@ def profile():
 @app.route('/logout') 
 def logout(): 
     session.pop('user_id', None) 
-    flash('You have been logged out.', 'success') 
+    flash('See you later! You have been logged out.', 'success') 
     return redirect(url_for('login')) 
 
 @app.route('/reset_password', methods=['GET', 'POST'])
@@ -87,11 +87,11 @@ def reset_password():
         confirm_password = request.form.get('confirm_password')
 
         if not new_password or not confirm_password:
-            flash('Please fill in both fields', 'error')
+            flash('Do not leave us hanging- complete all the details!', 'error')
             return redirect(url_for('reset_password'))
 
         if new_password != confirm_password:
-            flash('Passwords do not match!', 'error')
+            flash('Oh no! Passwords do not match!', 'error')
             return redirect(url_for('reset_password'))
 
         hashed_password = generate_password_hash(new_password, method='pbkdf2:sha256')
@@ -102,6 +102,28 @@ def reset_password():
         return redirect(url_for('login'))
 
     return render_template('resetpw.html', user=user) 
+
+@app.route('/delete_account', methods=['POST'])
+def delete_account():
+    user_id = session.get('user_id')
+    if not user_id:
+        flash('Please log in to delete your account', 'error')
+        return redirect(url_for('login'))
+
+    user = User.query.filter_by(id=user_id).first()
+
+    if user:
+
+        db.session.delete(user)
+        db.session.commit()
+
+        session.clear()
+
+        flash('Oh oh your account has been deleted.See you again!', 'success')
+        return redirect(url_for('register'))
+
+    flash('User not found.', 'error')
+    return redirect(url_for('profile'))
 
 if __name__ == "__main__":  
     app.run(debug=True) 

@@ -95,12 +95,14 @@ body {
 .tab {
     background-color: #ff69b4;
     color: #fff;
-    border: none;
+    border: none; 
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
     font-size: 16px;
     transition: background-color 0.3s ease;
+    text-decoration: none; 
+    outline: none; 
 }
 
 .tab:hover {
