@@ -24,11 +24,11 @@ nav {
 }
 
 .logo img {
-    height: 50px; /* Increase the logo size */
-    margin-right: 20px; /* Adds space between logo and nav items */
+    height: 50px; 
+    margin-right: 20px; 
     position: relative;
-    top: 10px;  /* Adjust the positioning to make it look centered */
-    left: -30px;  /* Moves the logo to the left */
+    top: 10px; 
+    left: -30px; 
 }
 
 
@@ -38,7 +38,7 @@ nav ul {
     margin: 0;
     padding: 0;
     margin-left: 90px;
-    margin-right: 150px; /* Adds spacing between menu items and search bar */
+    margin-right: 150px; 
 }
 
 nav ul li {
@@ -63,11 +63,11 @@ nav ul li a:hover {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    position: relative; /* Change from absolute to relative */
+    position: relative;
 }
 
 .search-bar form {
-    display: flex; /* Align input and button horizontally */
+    display: flex;
     align-items: center;
 }
 
@@ -80,7 +80,7 @@ nav ul li a:hover {
     border-radius: 20px;
     width: 200px;
     outline: none;
-    transition: width 0.3s ease-in-out; /* Smooth width change */
+    transition: width 0.3s ease-in-out; 
 }
 
 .search-bar input[type="text"]::placeholder {
@@ -88,7 +88,7 @@ nav ul li a:hover {
 }
 
 .search-bar input[type="text"]:focus {
-    width: 250px; /* Increases width when focused */
+    width: 250px; 
 }
 
 .search-bar input[type="submit"] {
@@ -109,16 +109,15 @@ nav ul li a:hover {
 /* Dropdown suggestions */
 #suggestions {
     position: absolute;
-    top: 45px; /* Adjust to match the bottom of your search bar */
+    top: 45px;
     left: 7.5px;
     width: 76%;
     border: 2px solid #ccc;
     background-color: rgb(8, 7, 7);
-    display: none; /* Hidden by default */
+    display: none; 
     z-index: 100;
-    max-height: 200px; /* Limit the height */
-    overflow-y: auto; /* Scroll if too many suggestions */
-    border-radius: 0 0 15px 15px; /* Rounded corners at the bottom */
+    max-height: 200px;
+    overflow-y: auto; 
 }
 
 /* Each suggestion */
@@ -180,10 +179,9 @@ nav ul li a:hover {
 /* Thumbnail Images Section */
 
 .concerts-section h2 {
-    text-align: center;  /* Centers the heading */
-    font-size: 2rem;  /* Adjust the font size */
-    color: #fff;  /* Text color */
-    margin-bottom: 10px;  /* Adds some space between the heading and the images */
+    text-align: center;  
+    font-size: 2rem; 
+    color: #fff; 
     font-weight: bold;
 }
 
@@ -197,8 +195,8 @@ nav ul li a:hover {
 }
 
 .image-container {
-    text-align: center;  /* Centers the text under each image */
-    margin-bottom: 20px;  /* Adds space between each image block */
+    text-align: center;  
+    margin-bottom: 20px;  
 }
 
 .image-container img {
@@ -214,9 +212,9 @@ nav ul li a:hover {
 }
 
 .image-container p {
-    color: #fff;  /* Text color */
-    font-size: 1.2rem;  /* Text size */
-    margin-top: 10px;  /* Adds space between image and text */
+    color: #fff;  
+    font-size: 1.2rem; 
+    margin-top: 10px;  
     font-weight: bold;
 }
 
