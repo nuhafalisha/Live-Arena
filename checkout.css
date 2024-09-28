@@ -24,11 +24,11 @@ nav {
 }
 
 .logo img {
-    height: 50px; /* Increase the logo size */
-    margin-right: 20px; /* Adds space between logo and nav items */
+    height: 50px;
+    margin-right: 20px; 
     position: relative;
-    top: 10px;  /* Adjust the positioning to make it look centered */
-    left: -30px;  /* Moves the logo to the left */
+    top: 10px; 
+    left: -30px;  
 }
 
 
@@ -38,7 +38,6 @@ nav ul {
     margin: 0;
     padding: 0;
     margin-left: 90px;
-    margin-right: 150px; /* Adds spacing between menu items and search bar */
 }
 
 nav ul li {
@@ -63,11 +62,11 @@ nav ul li a:hover {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    position: relative; /* Change from absolute to relative */
+    position: relative; 
 }
 
 .search-bar form {
-    display: flex; /* Align input and button horizontally */
+    display: flex; 
     align-items: center;
 }
 
@@ -80,7 +79,7 @@ nav ul li a:hover {
     border-radius: 20px;
     width: 200px;
     outline: none;
-    transition: width 0.3s ease-in-out; /* Smooth width change */
+    transition: width 0.3s ease-in-out; 
 }
 
 .search-bar input[type="text"]::placeholder {
@@ -88,7 +87,7 @@ nav ul li a:hover {
 }
 
 .search-bar input[type="text"]:focus {
-    width: 250px; /* Increases width when focused */
+    width: 250px; 
 }
 
 .search-bar input[type="submit"] {
@@ -109,16 +108,16 @@ nav ul li a:hover {
 /* Dropdown suggestions */
 #suggestions {
     position: absolute;
-    top: 45px; /* Adjust to match the bottom of your search bar */
+    top: 45px; 
     left: 7.5px;
     width: 76%;
     border: 2px solid #ccc;
     background-color: rgb(8, 7, 7);
-    display: none; /* Hidden by default */
+    display: none; 
     z-index: 100;
-    max-height: 200px; /* Limit the height */
-    overflow-y: auto; /* Scroll if too many suggestions */
-    border-radius: 0 0 15px 15px; /* Rounded corners at the bottom */
+    max-height: 200px; 
+    overflow-y: auto;
+    border-radius: 0 0 15px 15px; 
 }
 
 /* Each suggestion */
@@ -156,7 +155,7 @@ body {
     min-height: 100vh;
     padding: 20px;
     flex-direction: column;
-    justify-content: space-between; /* Ensures content fills space and pushes footer down */
+    justify-content: space-between; 
 }
 
 
@@ -165,28 +164,28 @@ body {
 .reservation-card {
     background-color: white;
     margin-top: 80px;
-    width: 400px; /* Wider for desktop */
+    width: 400px; 
     border-radius: 16px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 30px; /* Increased padding for desktop */
+    padding: 30px; 
     text-align: center;
     transition: width 0.3s ease;
 }
 
 .status-icon {
-    color: #ff69b4; /* Pink Color */
+    color: #ff69b4;
     font-size: 24px;
-    margin-bottom: 20px; /* Increased margin */
+    margin-bottom: 20px; 
 }
 
 .check-icon {
-    font-size: 50px; /* Increased size for desktop */
+    font-size: 50px;
     margin-bottom: 10px;
 }
 
 .reservation-info {
     text-align: left;
-    margin-top: 30px; /* More spacing */
+    margin-top: 30px; 
     line-height: 1.8;
     color: #333;
 }
@@ -201,12 +200,12 @@ body {
 
 .btn {
     width: 100%;
-    padding: 12px; /* Larger buttons */
+    padding: 12px; 
     border: none;
     border-radius: 8px;
-    background-color: #ff69b4; /* Pink Color */
+    background-color: #ff69b4; 
     color: white;
-    font-size: 18px; /* Bigger text */
+    font-size: 18px; 
     cursor: pointer;
     margin-bottom: 12px;
 }
@@ -215,10 +214,10 @@ body {
     opacity: 0.9;
 }
 
-/* Responsive for smaller screens */
+
 @media (max-width: 768px) {
     .reservation-card {
-        width: 100%; /* Full width for smaller screens */
+        width: 100%; 
         padding: 20px;
     }
 
