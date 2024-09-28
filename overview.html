@@ -40,7 +40,7 @@
 
     <!-- Thumbnail Image Section -->
     <div class="concerts-section">
-        <h2>UPCOMING CONCERTS</h2> <!-- Add this line for the heading -->
+        <h2>UPCOMING CONCERTS</h2> 
 
 
         <div class="image-gallery">
@@ -71,17 +71,21 @@
     </footer>
 
 <script>
-    // Array of suggestions (you can update the list)
-let suggestionsArray = ['Lana Del Rey', 'Jhené Aiko', 'Kali Uchis'];
+    // Array of suggestions 
+let suggestionsArray = [
+    { name: 'Lana Del Rey', link: 'lana.html' },
+    { name: 'Jhené Aiko', link: 'jheneaiko.html' },
+    { name: 'Kali Uchis', link: 'kaliuchis.html' }
+];
 
 // Access search bar and suggestions container
-const searchBar = document.getElementById('search-bar');  // Adjust the id if necessary
+const searchBar = document.getElementById('search-bar');  
 const suggestionsList = document.getElementById('suggestions');
 
 // Handle input events
 searchBar.addEventListener('input', function() {
     let inputVal = this.value.toLowerCase();
-    suggestionsList.innerHTML = '';  // Clear previous suggestions
+    suggestionsList.innerHTML = '';
     if (inputVal.length > 0) {
         let filteredSuggestions = suggestionsArray.filter(function(item) {
             return item.toLowerCase().includes(inputVal);
@@ -94,23 +98,21 @@ searchBar.addEventListener('input', function() {
                 let suggestionItem = document.createElement('p');
                 suggestionItem.textContent = item;
                 suggestionItem.onclick = function() {
-                    searchBar.value = item;
-                    suggestionsList.style.display = 'none';  // Hide dropdown on selection
-                };
+                    window.location.href = item.link;
                 suggestionsList.appendChild(suggestionItem);
             });
         } else {
-            suggestionsList.style.display = 'none';  // Hide if no matches
+            suggestionsList.style.display = 'none';  
         }
     } else {
-        suggestionsList.style.display = 'none';  // Hide if input is cleared
+        suggestionsList.style.display = 'none'; 
     }
 });
 
 // Hide dropdown if clicked outside of search bar or suggestions
 document.addEventListener('click', function(event) {
     if (!searchBar.contains(event.target) && !suggestionsList.contains(event.target)) {
-        suggestionsList.style.display = 'none';  // Hide dropdown
+        suggestionsList.style.display = 'none'; 
     }
 });
 </script>
