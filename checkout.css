@@ -1,0 +1,264 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #000;
+    color: #fff;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Navigation */
+nav {
+    background: #060606;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.logo img {
+    height: 50px; /* Increase the logo size */
+    margin-right: 20px; /* Adds space between logo and nav items */
+    position: relative;
+    top: 10px;  /* Adjust the positioning to make it look centered */
+    left: -30px;  /* Moves the logo to the left */
+}
+
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    margin-left: 90px;
+    margin-right: 150px; /* Adds spacing between menu items and search bar */
+}
+
+nav ul li {
+    margin: 15px;
+    margin-right: 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: opacity 0.3s;
+}
+
+nav ul li a:hover {
+    opacity: 0.7;
+    color: #ff69bf;
+}
+
+/* Search Bar Styles */
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative; /* Change from absolute to relative */
+}
+
+.search-bar form {
+    display: flex; /* Align input and button horizontally */
+    align-items: center;
+}
+
+.search-bar input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #fff;
+    background-color: transparent;
+    color: white;
+    border-radius: 20px;
+    width: 200px;
+    outline: none;
+    transition: width 0.3s ease-in-out; /* Smooth width change */
+}
+
+.search-bar input[type="text"]::placeholder {
+    color: white;
+}
+
+.search-bar input[type="text"]:focus {
+    width: 250px; /* Increases width when focused */
+}
+
+.search-bar input[type="submit"] {
+    padding: 10px 15px;
+    background-color: #e088ab;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-bar input[type="submit"]:hover {
+    background-color: #FF69B4;
+}
+
+/* Dropdown suggestions */
+#suggestions {
+    position: absolute;
+    top: 45px; /* Adjust to match the bottom of your search bar */
+    left: 7.5px;
+    width: 76%;
+    border: 2px solid #ccc;
+    background-color: rgb(8, 7, 7);
+    display: none; /* Hidden by default */
+    z-index: 100;
+    max-height: 200px; /* Limit the height */
+    overflow-y: auto; /* Scroll if too many suggestions */
+    border-radius: 0 0 15px 15px; /* Rounded corners at the bottom */
+}
+
+/* Each suggestion */
+#suggestions p {
+    padding: 10px;
+    margin: 0;
+    cursor: pointer;
+    border-bottom: 1px solid #fff;
+}
+
+/* Suggestion hover effect */
+#suggestions p:hover {
+    background-color: #a46c9e;
+    opacity: 0.75;
+}
+
+/* Remove border for last suggestion */
+#suggestions p:last-child {
+    border-bottom: none;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #090909;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    flex-direction: column;
+    justify-content: space-between; /* Ensures content fills space and pushes footer down */
+}
+
+
+
+
+.reservation-card {
+    background-color: white;
+    margin-top: 80px;
+    width: 400px; /* Wider for desktop */
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px; /* Increased padding for desktop */
+    text-align: center;
+    transition: width 0.3s ease;
+}
+
+.status-icon {
+    color: #ff69b4; /* Pink Color */
+    font-size: 24px;
+    margin-bottom: 20px; /* Increased margin */
+}
+
+.check-icon {
+    font-size: 50px; /* Increased size for desktop */
+    margin-bottom: 10px;
+}
+
+.reservation-info {
+    text-align: left;
+    margin-top: 30px; /* More spacing */
+    line-height: 1.8;
+    color: #333;
+}
+
+.reservation-info p {
+    margin: 8px 0;
+}
+
+.button-container {
+    margin-top: 30px;
+}
+
+.btn {
+    width: 100%;
+    padding: 12px; /* Larger buttons */
+    border: none;
+    border-radius: 8px;
+    background-color: #ff69b4; /* Pink Color */
+    color: white;
+    font-size: 18px; /* Bigger text */
+    cursor: pointer;
+    margin-bottom: 12px;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+    .reservation-card {
+        width: 100%; /* Full width for smaller screens */
+        padding: 20px;
+    }
+
+    .btn {
+        font-size: 16px;
+    }
+
+    .check-icon {
+        font-size: 40px;
+    }
+}
+
+
+
+/* Footer Section */
+footer {
+    background-color: #333;
+    padding: 20px 0 ;
+    text-align: center;
+    width: 102.5%;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+footer ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+footer ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+footer p {
+    color: #fff;
+    margin-top: 10px;
+}
