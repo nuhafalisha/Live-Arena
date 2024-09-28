@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Live Arena</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/ku.css') }}">
+        <link rel="icon"  type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon-32x32.png') }}">
+    </head>
+    
+    <body>
+         <nav class="navbar">
+            <img src="{{ url_for('static', filename='images/LA-03-removebg-preview.png') }}" alt="LA logo" class="navbar logo">
+            <ul class="navbar-menu">
+                <li><a class=":active" href="#"></a></li>
+                <li><a href="{{ url_for('home') }}">HOME</a></li>
+                <li><a href="{{ url_for('overview') }}#upcoming-concerts">PURCHASING</a></li>
+                <li><a href="{{ url_for('profile') }}">PROFILE</a></li>
+            </ul>
+        </nav>
+
+        <section class="KU">
+            <div class="kali">
+                <h3>Kali Uchis - Red Moon In Venus Tour</h3>
+                <p>ZEPP KUALA LUMPUR 4.2.2025 9PM</p>
+            </div>
+        </section>
+
+        <div class="event-details">
+            <div class="event">
+            <h2>KALI UCHIS IN KUALA LUMPUR</h2>
+            <h4>Show Date : Tuesday, 4th February 2024 9.00pm <br> Venue: Zepp Kuala Lumpur</h4>
+            </div>
+
+            <div class="on-sale">
+                <h3>ON-SALE DETAILS</h3>
+                <h4>DETAILS COMING SOON. </h4>   
+                <p>(Follow us on our socials, @livearena to get any update regarding ticket sales⁠)</p>
+            </div>
+
+        <div class="container">
+
+            <div class="poster">
+            <img class="centered-image" src="{{ url_for('static', filename='images/ku-poster_resized.jpg') }}" alt="Kali Uchis Poster">
+        </div>
+               
+        <div class="left-plan">
+            <div class="stage">STAGE</div>
+
+            <div class="section-floor">
+                <div class="vip">VIP<br>Rockzone</div>
+                <div class="cat1">CAT 1<br>General Admission</div>
+                <div class="cat2">CAT 2<br>(UL) Premium Seating</div>
+             </div>
+
+             <div class="price-list">
+                <div class="price vip-price">VIP<br>RM890</div>
+                <div class="price cat1-price">CAT 1<br>RM690</div>
+                <div class="price cat2-price">CAT 2 <br>RM490</div>
+             </div>
+        </div>
+        </div>
+             <button class="collapsible">EVENT INFORMATION</button>
+             <div class="content">
+                 <p>This concert is part of Kali Uchis's Red Moon in Venus Tour and will take place at the Zepp in Kuala Lumpur.
+                    <br> Additional information about the concert will be available soon.</p>
+                 <p>For any further inquiries, please contact the event organizers or follow @livearena on social media for live updates.</p>
+             </div>
+
+             <button class="collapsible">RULES AND REGULATIONS</button>
+             <div class="input">
+                <img class="AP" src="{{ url_for('static', filename='images/admission-policy.jpeg') }}" style="width:300px; height:auto; margin-top:10px;">
+             </div>
+
+             <footer>
+                <div class="footer-content">
+                    <ul>
+                        <li><a href="{{ url_for('home') }}">Home</a></li>
+                        <li><a href="{{ url_for('about') }}">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                    <p>Copyright &copy; 2024 Live Arena. All rights reserved.</p>
+                </div>
+            </footer>
+
+             <script>
+                
+                const collapsible = document.querySelectorAll(".collapsible");
+                collapsible.forEach(button => {
+                    button.addEventListener("click", function() {
+                        this.classList.toggle("active");
+                        const content = this.nextElementSibling;
+                        if (content.style.display === "block") {
+                            content.style.display = "none";
+                        } else {
+                            content.style.display = "block";
+                        }
+                    });
+                });
+            </script>
+        </body>
+        </html>

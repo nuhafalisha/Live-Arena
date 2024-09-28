@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Live Arena</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <link rel="icon"  type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon-32x32.png') }}">
+    </head>
+    <body>
+        <nav class="navbar">
+            <img src="{{ url_for('static', filename='images/LA-03-removebg-preview.png') }}" alt="LA logo" class="navbar logo">
+            <ul class="navbar-menu">
+                <li><a class=":active" href="#"></a></li>
+                <li><a href="{{ url_for('home') }}">HOME</a></li>
+                <li><a href="{{ url_for('overview') }}#upcoming-concerts">PURCHASING</a></li>
+                <li><a href="{{ url_for('profile') }}">PROFILE</a></li>
+            </ul>   
+         </nav>
+    
+        <section class="JA"> 
+            <div class="jhene aiko"> 
+                <h3>Jhene Aiko - The Magic Hour Tour</h3>
+                <p>ZEPP KUALA LUMPUR  1.10.24  8.30PM</p>
+            </div>
+            
+        </section>
+
+        <div class="event-details">
+            <div class="event">
+            <h2>JHENE AIKO TOUR IN KUALA LUMPUR</h2>
+            <h4>Show Date : Tuesday, 1st October 2024 8.30pm <br> Venue: Zepp Kuala Lumpur </h4>
+            </div>
+
+            <div class="on-sale">
+                <h3>ON-SALE DETAILS</h3>
+                <p>Live Arena Presale: Weds, 4th September, 8 PM - Thurs, 5th September, 8 AM </p>
+                 <p> General On Sale: Thurs, 5th September, 10 AM onwards </p>   
+                 <p>(Register for a FREE membership via www.livearena.my to access the exclusive presale!⁠)</p>
+            </div>
+        </div>
+
+        <div class="container">
+             <div class="poster">
+                <img class="centered-image" src="{{ url_for('static', filename='images/JheneAiko_First1200x1200.jpg') }}" alt="Concert Image">
+            </div>
+            
+            
+            <div class="left-plan">
+            <div class="stage">STAGE</div>
+
+            <div class="section floor">
+                <div class="vip">
+                    <a href="{{ url_for('booking') }}">VIP<br>Rock Zone</a> 
+                </div>
+                <div class="cat1">
+                    <a href="{{ url_for('booking') }}">CAT 1<br>General Admission</a>
+                    </div>
+                <div class="cat2">
+                    <a href="{{ url_for('seating') }}"> CAT 2<br>(UL) Premium Seating</a>
+                    </div>
+            
+             </div>
+
+             <div class="price-list">
+                <div class="price vip-price">VIP<br>RM890</div>
+                <div class="price cat1-price">CAT 1<br>RM690</div>
+                <div class="price cat2-price">CAT 2 <br>RM490</div>
+             </div>
+            </div>
+        </div>
+
+        <button class="collapsible">EVENT INFORMATION</button>
+             <div class="content">
+                 <p>This concert is part of Jhene Aiko's The Magic Hour Tour, and will take place at the Zepp in Kuala Lumpur.<br>
+                    Fans can expect a magical evening of live performances featuring hits from her latest albums.</p>
+                 <p>Doors will open at 6:00 PM. Parking spaces are available at the venue,but we encourage fans to use public transport for convenience
+                     as the venue is accessible.</p>
+                 <p>For any further inquiries, please contact the event organizers or follow @livearena on social media for live updates.</p>
+             </div>
+     
+<button class="collapsible">RULES AND REGULATIONS</button>
+<div class="input">
+  <img class="AP" src="{{ url_for('static', filename='images/admission-policy.jpeg') }}" style="width:300px; height:auto; margin-top:10px;">
+</div>
+
+             <footer>
+                <div class="footer-content">
+                    <ul>
+                        <li><a href="{{ url_for('home') }}">Home</a></li>
+                        <li><a href="{{ url_for('about') }}">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                    <p>Copyright &copy; 2024 Live Arena. All rights reserved.</p>
+                </div>
+        </footer>
+
+        <script>
+            const collapsible = document.querySelectorAll(".collapsible");
+            collapsible.forEach(button => {
+                button.addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    const content = this.nextElementSibling;
+                    if (content.style.display === "block") {
+                        content.style.display = "none";
+                    } else {
+                        content.style.display = "block";
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

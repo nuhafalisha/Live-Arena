@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIVE ARENA</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/checkout.css') }}">
+    <link rel="icon"  type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon-32x32.png') }}">
+</head>
+<body>
+
+    <!-- Navigation Menu -->
+    <nav>
+        <label class="logo">
+            <img src="{{ url_for('static', filename='images/LA-03-removebg-preview.png') }}" alt="Live Arena Logo" style="height: 50px;">
+        </label>    
+        <ul>
+            <li><a href="{{ url_for('home') }}">HOME</a></li>
+            <li><a href="#upcoming-concerts">PURCHASING</a></li>
+            <li><a href="{{ url_for('profile') }}">PROFILE</a></li>
+        </ul>
+        <div class="search-bar">
+            <form>
+                <input type="text" id="search-bar" placeholder="Search Here">
+                <div id="suggestions" class="suggestions-list"></div>
+                <input type="submit" value="🔍">
+            </form>
+        </div>  
+    </nav>
+
+    <!--Reservation-->
+    <div class="reservation-card">
+        <div class="status-icon">
+            <div class="check-icon">✔</div>
+            <p>Successfully Purchased Your Ticket!</p>
+        </div>
+        <div class="reservation-info">
+            <p><strong>Date:</strong> Oct 1st, 2024</p>
+            <p><strong>Time:</strong> 20:00 PM</p>
+            <p><strong>Duration:</strong> 120 Mins</p>
+        </div>
+        <div class="button-container">
+            <a href="{{ url_for('home') }}" class="btn">Return to Home</a>
+        </div>
+        
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <p>Copyright &copy; 2024 Live Arena. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Array of suggestions 
+    let suggestionsArray = ['Lana Del Rey', 'Jhené Aiko', 'Kali Uchis'];
+    
+    // Access search bar and suggestions container
+    const searchBar = document.getElementById('search-bar');  
+    const suggestionsList = document.getElementById('suggestions');
+    
+    // Handle input events
+    searchBar.addEventListener('input', function() {
+        let inputVal = this.value.toLowerCase();
+        suggestionsList.innerHTML = '';  
+        if (inputVal.length > 0) {
+            let filteredSuggestions = suggestionsArray.filter(function(item) {
+                return item.toLowerCase().includes(inputVal);
+            });
+    
+            // Display suggestions if matches are found
+            if (filteredSuggestions.length > 0) {
+                suggestionsList.style.display = 'block';  
+                filteredSuggestions.forEach(function(item) {
+                    let suggestionItem = document.createElement('p');
+                    suggestionItem.textContent = item;
+                    suggestionItem.onclick = function() {
+                        searchBar.value = item;
+                        suggestionsList.style.display = 'none';  
+                    };
+                    suggestionsList.appendChild(suggestionItem);
+                });
+            } else {
+                suggestionsList.style.display = 'none';  
+            }
+        } else {
+            suggestionsList.style.display = 'none';  
+        }
+    });
+    
+    
+    document.addEventListener('click', function(event) {
+        if (!searchBar.contains(event.target) && !suggestionsList.contains(event.target)) {
+            suggestionsList.style.display = 'none';  
+        }
+    });
+    </script>
+    
+    
+
+</body>
+</html>

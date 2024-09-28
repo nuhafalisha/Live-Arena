@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Live Arena</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/lana.css') }}">
+        <link rel="icon"  type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon-32x32.png') }}">
+    </head>
+    <body>
+        <nav class="navbar">
+            <img src="{{ url_for('static', filename='images/LA-03-removebg-preview.png') }}" alt="LA logo" class="navbar logo">
+            <ul class="navbar-menu">
+                <li><a class=":active" href="#"></a></li>
+                <li><a href="{{ url_for('home') }}">HOME</a></li>
+                <li><a href="{{ url_for('overview') }}#upcoming-concerts">PURCHASING</a></li>
+                <li><a href="{{ url_for('profile') }}">PROFILE</a></li>
+            </ul>
+         </nav>
+    
+        <section class="LD"> 
+            <div class="lana"> 
+                <h3>Lana Del Rey - Ultraviolence Tour</h3>
+                <h2>SOLD OUT</h2>
+                <p>MEGA STAR ARENA  16.8.2024  8.30PM</p>
+            </div>
+            
+        </section>
+
+        <div class="event-details">
+            <div class="event">
+            <h2>LANA DEL REY IN KUALA LUMPUR</h2>
+            <h4>Show Date : Friday, 16th August 2024 8.30pm <br> Venue: Mega Star Arena, Sungei Wang</h4>
+            </div>
+
+            <div class="on-sale">
+                <h3>ON-SALE DETAILS</h3>
+                <h4>TICKETS CURRENTLY SOLD OUT. </h4>   
+                <p>(Follow us on our socials, @livearena to get any update regarding ticket sales⁠)</p>
+            </div>
+
+        </div>
+
+        <div class="container">
+             <div class="poster">
+                <img class="centered-image" src="{{ url_for('static', filename='images/lana del rey poster.jpg') }}" alt="Concert Image">
+            </div>
+            
+            
+            <div class="left-plan">
+            <div class="stage">STAGE</div>
+            <div class="section floor">
+                <div class="vip"><a>VIP<br>Premium Seating</a>
+                </div>
+                <div class="cat1">
+                    <a>CAT 1<br>Free Standing</a>
+                    </div>
+                <div class="cat2">CAT 2<br>(Upper Level) Seating</div>
+             </div>
+
+             <div class="price-list">
+                <div class="price vip-price">VIP<br>RM890</div>
+                <div class="price cat1-price">CAT 1<br>RM690</div>
+                <div class="price cat2-price">CAT 2 <br>RM490</div>
+             </div>
+</div>
+</div>
+
+<button class="collapsible">EVENT INFORMATION</button>
+             <div class="content">
+                 <p>This concert is part of Lana Del Rey's Ultraviolence Tour, and will take place at the Mega Star Arena in Kuala Lumpur.<br>
+                    Fans can expect a magical evening of live performances featuring hits from her latest albums.</p>
+                 <p>Doors will open at 7:00 PM. Parking spaces are available at the venue,but we encourage fans to use public transport for convenience
+                     as the venue is accessible via the Sungei Wang MRT station.</p>
+                 <p>For any further inquiries, please contact the event organizers or follow @livearena on social media for live updates.</p>
+             </div>
+     
+<button class="collapsible">RULES AND REGULATIONS</button>
+<div class="input">
+  <img class="AP" src="{{ url_for('static', filename='images/admission-policy.jpeg') }}" style="width:300px; height:auto; margin-top:10px;">
+</div>
+<footer>
+        <div class="footer-content">
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <p>Copyright &copy; 2024 Live Arena. All rights reserved.</p>
+        </div>
+</footer>
+
+<script>
+    const collapsible = document.querySelectorAll(".collapsible");
+    collapsible.forEach(button => {
+        button.addEventListener("click", function() {
+            this.classList.toggle("active");
+            const content = this.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

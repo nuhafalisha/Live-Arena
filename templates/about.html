@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIVE ARENA</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+    <link rel="icon"  type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon-32x32.png') }}">
+
+</head>
+<body>
+
+    <nav>
+        <label class="logo">
+            <img src="{{ url_for('static', filename='images/LA-03-removebg-preview.png') }}" alt="Live Arena Logo" style="height: 50px;">
+        </label>    
+        <ul>
+            <li><a href="{{ url_for('home') }}">HOME</a></li>
+            <li><a href="#upcoming-concerts">PURCHASING</a></li>
+            <li><a href="{{ url_for('profile') }}">PROFILE</a></li>
+        </ul>
+        <div class="search-bar">
+            <form>
+                <input type="text" id="search-bar" placeholder="Search Here">
+                <div id="suggestions" class="suggestions-list"></div>
+                <input type="submit" value="🔍">
+            </form>
+        </div>  
+    </nav>  
+    
+    <!--About-->
+    <header>
+        <div class="container">
+            <h1>About Live Arena</h1>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Live Arena</h2>
+            <p>Live Arena is your premier concert ticketing platform, dedicated to helping music fans easily and quickly find tickets for live shows across genres and venues. We aim to provide a seamless experience for securing your spot at the most exciting concerts.</p>
+        </div>
+    </section>
+
+    <section id="mission">
+        <div class="container">
+            <h2>Our Mission</h2>
+            <p>At Live Arena, our mission is to bring the concert-going experience closer to everyone by offering an easy, secure, and efficient ticket-buying platform. We constantly enhance our features to ensure our users have the best experience possible.</p>
+        </div>
+    </section>
+
+    <section id="team">
+        <div class="container">
+            <h2>Meet the Team</h2>
+            <p>Live Arena is powered by three dedicated music lovers — Falisha, Adrianna, and Najiha. Our diverse talents and passion for live music fuel everything we do, from ticket listings to user support.</p>
+        </div>
+    </section>
+
+    <section id="why-us">
+        <div class="container">
+            <h2>Why Choose Live Arena?</h2>
+            <p>We understand the excitement of attending live concerts, which is why we provide a smooth, reliable, and secure platform for all your concert ticketing needs. From early access to last-minute deals, Live Arena is here to help you get closer to the music you love.</p>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <p>Copyright &copy; 2024 Live Arena. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Array of suggestions (you can update the list)
+    let suggestionsArray = ['Lana Del Rey', 'Jhené Aiko', 'Kali Uchis'];
+    
+    // Access search bar and suggestions container
+    const searchBar = document.getElementById('search-bar');  // Adjust the id if necessary
+    const suggestionsList = document.getElementById('suggestions');
+    
+    // Handle input events
+    searchBar.addEventListener('input', function() {
+        let inputVal = this.value.toLowerCase();
+        suggestionsList.innerHTML = '';  // Clear previous suggestions
+        if (inputVal.length > 0) {
+            let filteredSuggestions = suggestionsArray.filter(function(item) {
+                return item.toLowerCase().includes(inputVal);
+            });
+    
+            // Display suggestions if matches are found
+            if (filteredSuggestions.length > 0) {
+                suggestionsList.style.display = 'block';  // Show dropdown
+                filteredSuggestions.forEach(function(item) {
+                    let suggestionItem = document.createElement('p');
+                    suggestionItem.textContent = item;
+                    suggestionItem.onclick = function() {
+                        searchBar.value = item;
+                        suggestionsList.style.display = 'none';  // Hide dropdown on selection
+                    };
+                    suggestionsList.appendChild(suggestionItem);
+                });
+            } else {
+                suggestionsList.style.display = 'none';  // Hide if no matches
+            }
+        } else {
+            suggestionsList.style.display = 'none';  // Hide if input is cleared
+        }
+    });
+    
+    // Hide dropdown if clicked outside of search bar or suggestions
+    document.addEventListener('click', function(event) {
+        if (!searchBar.contains(event.target) && !suggestionsList.contains(event.target)) {
+            suggestionsList.style.display = 'none';  // Hide dropdown
+        }
+    });
+    </script>
+    
+    
+
+</body>
+</html>

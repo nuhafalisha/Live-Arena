@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seat Selection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/seating.css') }}">
+    <link rel="icon"  type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon-32x32.png') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <img src="{{ url_for('static', filename='images/LA-03-removebg-preview.png') }}" alt="LA logo" class="navbar logo">
+        <ul class="navbar-menu">
+            <li><a class=":active" href="#"></a></li>
+            <li><a href="{{ url_for('home') }}">HOME</a></li>
+            <li><a href="{{ url_for('overview') }}#upcoming-concerts">PURCHASING</a></li>
+            <li><a href="{{ url_for('profile') }}">PROFILE</a></li>
+        </ul>
+     </nav>
+
+     <div class="container">
+        <div class="seating-area">
+            <h2>Stage</h2>
+            <div class="seat-grid" id="seat-grid">
+                
+            </div>
+        </div>
+
+        <div class="booking-details">
+            <h3>BOOKING DETAILS</h3>
+            <p><strong>Show Date: Tues, 1st October 2024</strong> </p>
+            <p><strong>Section:</strong> <span id="section">N/A</span></p>
+            <p><strong>Seat Number:</strong> <span id="seat-number">N/A</span></p>
+            <p><strong>Price MYR:</strong> <span id="price">N/A</span></p>
+            <p><strong>Seats Available: 0</strong></p>
+            <button class="book-now-btn" id="book-now">Book Now</button>
+        </div>
+    </div>
+    <script>
+        
+        const generateSeats = () => {
+            const seatGrid = document.getElementById('seat-grid');
+            const numRows = 10;  
+            const seatsPerRow = 10;  
+            const price = 698;  
+
+            
+            for (let row = 0; row < numRows; row++) {
+                for (let seat = 1; seat <= seatsPerRow; seat++) {
+                    const seatNumber = seat < 10 ? `0${seat}` : seat;
+                    const section = String.fromCharCode(65 + row);  
+                    const seatId = `${section}-${seatNumber}`;
+                    
+                    const seatDiv = document.createElement('div');
+                    seatDiv.className = 'seat unavailable';
+                    seatDiv.id = seatId;
+                    seatDiv.setAttribute('data-price', price);
+                    seatDiv.setAttribute('data-section', section);
+                    seatDiv.innerText = seatId;
+
+                    seatDiv.addEventListener('click', handleSeatClick);
+
+                    seatGrid.appendChild(seatDiv);
+                }
+            }
+        };
+
+        const handleSeatClick = (event) => {
+            const selectedSeat = event.target;
+            
+            if (selectedSeat.classList.contains('unavailable')) {
+                return;
+            }
+            
+            const seatNumber = selectedSeat.id;
+            const section = selectedSeat.getAttribute('data-section');
+            const price = selectedSeat.getAttribute('data-price');
+
+            document.getElementById('seat-number').innerText = seatNumber;
+            document.getElementById('section').innerText = section;
+            document.getElementById('price').innerText = price;
+
+            clearPreviousSelection();  
+            selectedSeat.classList.add('selected');
+        };
+
+        const clearPreviousSelection = () => {
+            const previouslySelectedSeat = document.querySelector('.seat.selected');
+            if (previouslySelectedSeat) {
+                previouslySelectedSeat.classList.remove('selected');
+            }
+        };
+
+        window.onload = generateSeats;
+    </script>
+    <footer> 
+        <div class="footer-content"> 
+            <ul> 
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="#">Contact</a></li> 
+            </ul> 
+            <p>Copyright &copy; 2024 Live Arena. All rights reserved.</p> 
+        </div> 
+    </footer> 
+    
+</body>
+</html>

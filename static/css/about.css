@@ -1,0 +1,224 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #000;
+    color: #fff;
+    height: 100%;
+    line-height: 1.6;
+}
+
+/* Navigation */
+nav {
+    background: #060606;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.logo img {
+    height: 50px; 
+    margin-right: 20px; 
+    position: relative;
+    top: 10px; 
+    left: -30px;  
+}
+
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    margin-left: 90px;
+    margin-right: 150px; 
+}
+
+nav ul li {
+    margin: 15px;
+    margin-right: 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: opacity 0.3s;
+}
+
+nav ul li a:hover {
+    opacity: 0.7;
+    color: #ff69bf;
+}
+
+/* Search Bar Styles */
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative; 
+}
+
+.search-bar form {
+    display: flex; 
+    align-items: center;
+}
+
+.search-bar input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #fff;
+    background-color: transparent;
+    color: white;
+    border-radius: 20px;
+    width: 200px;
+    outline: none;
+    transition: width 0.3s ease-in-out; 
+}
+
+.search-bar input[type="text"]::placeholder {
+    color: white;
+}
+
+.search-bar input[type="text"]:focus {
+    width: 250px; 
+}
+
+.search-bar input[type="submit"] {
+    padding: 10px 15px;
+    background-color: #e088ab;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-bar input[type="submit"]:hover {
+    background-color: #FF69B4;
+}
+
+/* Dropdown suggestions */
+#suggestions {
+    position: absolute;
+    top: 45px; 
+    left: 7.5px;
+    width: 76%;
+    border: 2px solid #ccc;
+    background-color: rgb(8, 7, 7);
+    display: none;
+    z-index: 100;
+    max-height: 200px; 
+    overflow-y: auto; 
+    border-radius: 0 0 15px 15px; 
+}
+
+/* Each suggestion */
+#suggestions p {
+    padding: 10px;
+    margin: 0;
+    cursor: pointer;
+    border-bottom: 1px solid #fff;
+}
+
+/* Suggestion hover effect */
+#suggestions p:hover {
+    background-color: #a46c9e;
+    opacity: 0.75;
+}
+
+/* Remove border for last suggestion */
+#suggestions p:last-child {
+    border-bottom: none;
+}
+
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background:black;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #fff;
+}
+
+
+section {
+    padding: 40px 0;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+h2 {
+    font-size: 1.8em;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+
+#why-us {
+    padding: 40px 0;
+    border-bottom: none;  
+}
+
+
+/* Footer Section */
+footer {
+    background-color: #333;
+    padding: 20px 0 ;
+    text-align: center;
+    width: 102.5%;
+    border-top: none   
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+footer ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+footer ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+footer p {
+    color: #fff;
+    margin-top: 10px;
+}

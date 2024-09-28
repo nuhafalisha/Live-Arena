@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seat Selection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/booking.css') }}">
+    <link rel="icon"  type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon-32x32.png') }}">
+</head>
+
+<body>
+    <nav class="navbar">
+        <img src="{{ url_for('static', filename='images/LA-03-removebg-preview.png') }}" alt="LA logo" class="navbar logo">
+        <ul class="navbar-menu">
+            <li><a class=":active" href="#"></a></li>
+            <li><a href="{{ url_for('home') }}">HOME</a></li>
+            <li><a href="#upcoming-concerts">PURCHASING</a></li>
+            <li><a href="{{ url_for('profile') }}">PROFILE</a></li>
+        </ul>
+     </nav>
+
+     <div class="image-section">
+        <img src="{{ url_for('static', filename='images/jhene.jpg') }}" alt="Event Image" class="event-image">
+    </div>
+
+    <div class="container"> 
+        <div class="form"> 
+            <label for="section">Section :</label>  
+            <select id="section" onchange="updateSectionAndPrice()"> 
+                <option value="undefined">SELECT</option> 
+                <option value="VIP">VIP - FREE STANDING</option> 
+                <option value="CAT1">CAT1 - FREE STANDING</option> 
+            </select>      
+           <br>  
+            <label for="ticket-number">Number of ticket(s) :</label> 
+            <select id="ticket-number" onchange="updateSeatCount()"> 
+                <option value="0">0</option> 
+                <option value="1">1</option> 
+                <option value="2">2</option> 
+                <option value="3">3</option> 
+                <option value="4">4</option> 
+            </select> 
+        </div> 
+      
+        <div class="booking-details"> 
+            <h3>BOOKING DETAILS</h3> 
+            <p>Section: <span id="selected-section"></span></p>   
+            <p>Status: <span class="status">AVAILABLE</span></p> 
+            <p>Price: RM<span id="price-summary">0</span></p> 
+            <p>Number of seats: <span id="seat-count-summary">0</span></p> 
+            <button class="book-now-btn" id="book-now">Book Now</button> 
+        </div> 
+     </div> 
+     
+     <footer> 
+        <div class="footer-content"> 
+            <ul> 
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="#">Contact</a></li> 
+            </ul> 
+            <p>Copyright &copy; 2024 Live Arena. All rights reserved.</p> 
+        </div> 
+     
+    </footer> 
+
+ <script>
+    function updateSection() { 
+            const section = document.getElementById('section').value; 
+            document.getElementById('selected-section').innerText = section; 
+             
+        } 
+    function updateSectionAndPrice() { 
+             
+            var section = document.getElementById("section").value; 
+            var price = 0;  
+            document.getElementById("selected-section").innerText = section; 
+ 
+            if (section === "VIP") { 
+                price = 890; 
+            } else if (section === "CAT1") { 
+                price = 690; 
+            } 
+ 
+            document.getElementById("price-summary").innerText = price; 
+        } 
+    function updateSeatCount() { 
+ 
+            var seatCount = document.getElementById("ticket-number").value; 
+            document.getElementById("seat-count-summary").innerText = seatCount; 
+} 
+    const bookNowBtn = document.getElementById('book-now'); 
+
+    bookNowBtn.addEventListener('click', () => { 
+        console.log('Book Now button clicked');
+        window.location.href = '/checkout'; // Redirect directly to checkout page
+});
+ 
+ </script> 
+ 
+</body> 
+</html>
